@@ -45,7 +45,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
                               token-validity-seconds="60"
                               remember-me-parameter="remember-me"/>
         <!--403异常处理(权限不足时跳转的页面)-->
-        <security:access-denied-handler error-page="/403.jsp"/>
+        <!--<security:access-denied-handler error-page="/403.jsp"/>-->
     </security:http>
 
     <!--加密对象-->
