@@ -5,6 +5,7 @@
         xmlns:aop="http://www.springframework.org/schema/aop"
         xmlns:tx="http://www.springframework.org/schema/tx"
         xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:security="http://www.springframework.org/schema/security"
         xsi:schemaLocation="http://www.springframework.org/schema/beans
 			    http://www.springframework.org/schema/beans/spring-beans.xsd
 			    http://www.springframework.org/schema/context
@@ -13,6 +14,8 @@
 			    http://www.springframework.org/schema/aop/spring-aop.xsd
 			    http://www.springframework.org/schema/tx
 			    http://www.springframework.org/schema/tx/spring-tx.xsd
+			    http://www.springframework.org/schema/security
+                http://www.springframework.org/schema/security/spring-security.xsd
 			    http://www.springframework.org/schema/mvc
 			    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
@@ -27,6 +30,15 @@
 
     <mvc:default-servlet-handler/>
 
+    <!--  如果在spring-mvc使用标签，则在controller使用该注解生效。如果在spring-security使用标签，则在service使用注解生效。此处对应的是controller的注解。
+    开启权限控制注解支持，建议将标签写在spring-security，则在controller生效
+    jsr250-annotations="enabled"表示支持jsr250-api的注解，需要jsr250-api的jar包
+    pre-post-annotations="enabled"表示支持spring表达式注解
+    secured-annotations="enabled"这才是SpringSecurity提供的注解
+    -->
+    <security:global-method-security jsr250-annotations="enabled"
+                                     pre-post-annotations="enabled"
+                                     secured-annotations="enabled"/>
 
 
 </beans>

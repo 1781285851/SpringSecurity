@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -51,14 +52,19 @@
 				</span>
             </a>
                 <ul class="treeview-menu">
+                    <!-- 产品模块还需要产品角色，注意这里还需再次指定超级管理员 -->
+                    <security:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_PRODUCT')">
                     <li id="system-setting"><a
                             href="${pageContext.request.contextPath}/product/findAll">
                         <i class="fa fa-circle-o"></i> 产品管理
                     </a></li>
+                    </security:authorize>
+                    <security:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_ORDER')">
                     <li id="system-setting"><a
                             href="${pageContext.request.contextPath}/order/findAll">
                         <i class="fa fa-circle-o"></i> 订单管理
                     </a></li>
+                    </security:authorize>
                 </ul>
             </li>
         </ul>
