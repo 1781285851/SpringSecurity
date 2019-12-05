@@ -74,6 +74,12 @@ public class UserServiceImpl implements UserService {
             authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
         }
         //最终需要返回一个SpringSecurity的UserDetails对象，{noop}表示不加密认证。
-        return new User(sysUser.getUsername(), sysUser.getPassword(), authorities);
+        return new User(sysUser.getUsername(),
+                sysUser.getPassword(),
+                sysUser.getStatus()==1,
+                true,
+                true,
+                true,
+                authorities);
     }
 }

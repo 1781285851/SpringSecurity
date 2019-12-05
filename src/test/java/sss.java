@@ -5,6 +5,6 @@ public class sss {
     //$2a$10$CDTS6FidZuI2UwJfuHmV1.NiPkQ2wLP6GZJQFXwKszfaVNTIzY1FO
     public static void main(String[] args) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        System.out.println(passwordEncoder.encode("zmn123"));
+        System.out.println(passwordEncoder.encode("wx123"));
     }
 }
