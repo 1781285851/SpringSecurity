@@ -22,6 +22,7 @@
 						src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
 						class="user-image" alt="User Image">
 					<span class="hidden-xs">
+						<%--下面两个动态标签都可以获取当前登录的用户名，需要先引入标签-->
 							<%--<security:authentication property="principal.username" />--%>
 							<security:authentication property="name" />
 					</span>
